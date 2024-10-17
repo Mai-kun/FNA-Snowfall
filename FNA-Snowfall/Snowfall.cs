@@ -6,26 +6,25 @@ using System.Collections.Generic;
 
 namespace FNA_Snowfall
 {
-    public class Game1 : Microsoft.Xna.Framework.Game
+    public class Snowfall : Game
     {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
 
         private Texture2D snowflakeTexture;
         private List<Snowflake> snowflakes;
-        private Random random = new Random();
 
-        private int windowHeight = 600;
-        private int windowWidth = 800;
+        private const int WindowHeight = 600;
+        private const int WindowWidth = 800;
+        private readonly Random random = new Random();
 
-
-        public Game1()
+        public Snowfall()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            graphics.PreferredBackBufferHeight = windowHeight;
-            graphics.PreferredBackBufferWidth = windowWidth;
+            graphics.PreferredBackBufferHeight = WindowHeight;
+            graphics.PreferredBackBufferWidth = WindowWidth;
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();
         }
@@ -42,11 +41,11 @@ namespace FNA_Snowfall
             snowflakeTexture = Content.Load<Texture2D>("snowflake");
             snowflakes = new List<Snowflake>();
 
-            for (int i = 0; i < 100; i++)
+            for (var i = 0; i < 200; i++)
             {
-                float size = (float)random.NextDouble() * 0.05f;
-                float speed = (float)random.NextDouble() * 50f + 30f;
-                Vector2 startPosition = new Vector2(random.Next(0, 800), random.Next(0, 480));
+                var size = (float)random.Next(3, 7) / 100;
+                var speed = (float)random.NextDouble() * 50f + 20f;
+                var startPosition = new Vector2(random.Next(0, WindowWidth), random.Next(0, WindowHeight));
 
                 snowflakes.Add(new Snowflake(snowflakeTexture, startPosition, speed, size));
             }
@@ -62,14 +61,15 @@ namespace FNA_Snowfall
             foreach (var snowflake in snowflakes)
             {
                 snowflake.Fall(gameTime);
-                if (snowflake.Position.Y > windowHeight)
+                if (snowflake.position.Y > WindowHeight)
                 {
-                    snowflake.Position.Y = -20;
+                    snowflake.position = new Vector2(random.Next(0, WindowWidth), -50);
                 }
             }
 
             base.Update(gameTime);
         }
+
 
         protected override void Draw(GameTime gameTime)
         {

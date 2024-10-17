@@ -17,4 +17,5 @@ The library dependency list is as follows:
 - FAudio, used in the Audio/Media namespaces
 - libtheorafile, only used for VideoPlayer
 
-For Linux, the minimum OS requirement is glibc 2.28.
+For x86_64 Linux, the minimum OS requirement is glibc 2.28.
+For aarch64 Linux, the minimum OS requirement is glibc 2.34.
