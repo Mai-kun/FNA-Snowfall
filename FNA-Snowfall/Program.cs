@@ -1,6 +1,6 @@
 ﻿namespace FNA_Snowfall
 {
-    internal static class Program
+    static internal class Program
     {
         private static void Main(string[] args)
         {

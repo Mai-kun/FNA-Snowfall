@@ -28,7 +28,7 @@ namespace FNA_Snowfall
         }
 
         /// <summary>
-        /// Отрисовывает <see cref="Snowflake"/>
+        /// Рисует <see cref="Snowflake"/>
         /// </summary>
         public void Draw(SpriteBatch spriteBatch)
         {

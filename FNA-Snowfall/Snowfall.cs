@@ -1,8 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System;
-using System.Collections.Generic;
 
 namespace FNA_Snowfall
 {
@@ -14,8 +14,8 @@ namespace FNA_Snowfall
         private Texture2D snowflakeTexture;
         private List<Snowflake> snowflakes;
 
-        private const int WindowHeight = 600;
-        private const int WindowWidth = 800;
+        private const int WindowHeight = 1920;
+        private const int WindowWidth = 1080;
         private readonly Random random = new Random();
 
         public Snowfall()
@@ -23,9 +23,7 @@ namespace FNA_Snowfall
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            graphics.PreferredBackBufferHeight = WindowHeight;
-            graphics.PreferredBackBufferWidth = WindowWidth;
-            graphics.IsFullScreen = false;
+            graphics.IsFullScreen = true;
             graphics.ApplyChanges();
         }
 
@@ -69,7 +67,6 @@ namespace FNA_Snowfall
 
             base.Update(gameTime);
         }
-
 
         protected override void Draw(GameTime gameTime)
         {
