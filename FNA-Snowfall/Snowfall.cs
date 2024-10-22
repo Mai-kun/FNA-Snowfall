@@ -12,6 +12,7 @@ namespace FNA_Snowfall
         private SpriteBatch spriteBatch;
 
         private Texture2D snowflakeTexture;
+        private Texture2D backgroundTexture;
         private List<Snowflake> snowflakes;
 
         private readonly int windowHeight;
@@ -38,7 +39,7 @@ namespace FNA_Snowfall
             snowflakes = new List<Snowflake>();
             for (var i = 0; i < 400; i++)
             {
-                var size = (float)random.Next(3, 7) / 100;
+                var size = (float)random.Next(2, 5) / 100;
                 var speed = (float)random.NextDouble() * 50f + 20f;
                 var startPosition = new Vector2(random.Next(0, windowWidth), random.Next(0, windowHeight));
 
@@ -53,6 +54,7 @@ namespace FNA_Snowfall
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             snowflakeTexture = Content.Load<Texture2D>("snowflake");
+            backgroundTexture = Content.Load<Texture2D>("background");
         }
 
         protected override void Update(GameTime gameTime)
@@ -84,9 +86,9 @@ namespace FNA_Snowfall
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
-
             spriteBatch.Begin();
+
+            spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
 
             foreach (var snowflake in snowflakes)
             {
