@@ -77,7 +77,7 @@
   <ItemGroup>
     <Reference Include="FNA, Version=24.10.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FNA\bin\Release\FNA.dll</HintPath>
+      <HintPath>..\FNA.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
