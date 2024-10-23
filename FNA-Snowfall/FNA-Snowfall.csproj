@@ -60,12 +60,6 @@
     <Compile Include="Snowflake.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FNA\FNA.csproj">
-      <Project>{35253ce1-c864-4cd3-8249-4d1319748e8f}</Project>
-      <Name>FNA</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Content\background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -79,6 +73,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="FNA, Version=24.10.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FNA\bin\Release\FNA.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
